@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calculate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 15:52:23 by donchoi           #+#    #+#             */
-/*   Updated: 2022/04/22 16:19:35 by donchoi          ###   ########.fr       */
+/*   Created: 2022/04/22 16:16:12 by donchoi           #+#    #+#             */
+/*   Updated: 2022/04/22 16:43:27 by donchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include "./Libft/libft.h"
-# include <stdarg.h>
-
-#endif
+void	ft_calculate(long long nbr, char *base, int baselen)
+{
+	if (nbr == 0)
+		return ;
+	ft_calculate(nbr / baselen, base, baselen);
+	write(1, &base[nbr % baselen], 1);
+}

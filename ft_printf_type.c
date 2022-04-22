@@ -6,11 +6,34 @@
 /*   By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 17:09:58 by donchoi           #+#    #+#             */
-/*   Updated: 2022/04/22 17:22:14 by donchoi          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:24:29 by donchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_printf_str(char *str)
+{
+	if (str == 0)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
+}
+
+int	ft_printf_nbr(int nbr)
+{
+	int		len;
+	char	*str;
+
+	str = ft_itoa(nbr);
+	len = ft_strlen(str);
+	ft_putnbr_base(nbr, "0123456789");
+	free(str);
+	return (len);
+}
 
 int	ft_printf_hex(unsigned int nbr, const char type)
 {
@@ -27,29 +50,6 @@ int	ft_printf_hex(unsigned int nbr, const char type)
 		ft_putnbr_base(nbr, "0123456789abcdef");
 	len = ft_base_strlen(16, nbr, 1);
 	return (len);
-}
-
-int	ft_printf_nbr(int nbr)
-{
-	int		len;
-	char	*str;
-
-	str = ft_itoa(nbr);
-	len = ft_strlen(str);
-	ft_putnbr_base(nbr, "0123456789");
-	free(str);
-	return (len);
-}
-
-int	ft_printf_str(char *str)
-{
-	if (str == 0)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
 }
 
 static void	ft_putptr(unsigned long long ptr)

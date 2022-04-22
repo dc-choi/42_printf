@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: donchoi <donchoi@student.42seoul.kr>       +#+  +:+       +#+         #
+#    By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 11:02:56 by donchoi           #+#    #+#              #
-#    Updated: 2022/03/28 11:02:56 by donchoi          ###   ########.fr        #
+#    Updated: 2022/04/22 17:17:55 by donchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-FILES = 
+FILES = ft_printf \
+		ft_printf_type \
 
 LIBFT_DIR = ./Libft/
 

@@ -6,7 +6,7 @@
 /*   By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 15:52:23 by donchoi           #+#    #+#             */
-/*   Updated: 2022/04/22 16:19:35 by donchoi          ###   ########.fr       */
+/*   Updated: 2022/04/22 17:23:03 by donchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,14 @@
 
 # include "./Libft/libft.h"
 # include <stdarg.h>
+
+int		ft_printf(const char *format, ...);
+int		check_type(const char c, va_list *ap);
+
+int		ft_printf_char(int c);
+int		ft_printf_str(char *str);
+int		ft_printf_nbr(int nbr);
+int		ft_printf_hex(unsigned int nbr, const char type);
+int		ft_printf_ptr(unsigned long long ptr);
 
 #endif

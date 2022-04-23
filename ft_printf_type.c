@@ -14,13 +14,15 @@
 
 int	ft_printf_str(char *str)
 {
+	int	len;
+
 	if (str == 0)
 	{
 		ft_putstr_fd("(null)", 1);
 		return (6);
 	}
-	ft_putstr_fd(str, 1);
-	return (ft_strlen(str));
+	len = ft_putstr_fd(str, 1);
+	return (len);
 }
 
 int	ft_printf_nbr(int nbr)
@@ -29,8 +31,7 @@ int	ft_printf_nbr(int nbr)
 	char	*str;
 
 	str = ft_itoa(nbr);
-	len = ft_strlen(str);
-	ft_putnbr_base(nbr, "0123456789");
+	len = ft_putstr_fd(str, 1);
 	free(str);
 	return (len);
 }
@@ -39,42 +40,38 @@ int	ft_printf_hex(unsigned int nbr, const char type)
 {
 	int	len;
 
+	len = 0;
 	if (type == 'u')
-	{
-		ft_putnbr_base(nbr, "0123456789");
-		return (ft_base_strlen(10, nbr, 1));
-	}
-	if (type == 'X')
-		ft_putnbr_base(nbr, "0123456789ABCDEF");
+		len = ft_putnbr_base(nbr, "0123456789");
+	else if (type == 'X')
+		len = ft_putnbr_base(nbr, "0123456789ABCDEF");
 	else
-		ft_putnbr_base(nbr, "0123456789abcdef");
-	len = ft_base_strlen(16, nbr, 1);
+		len = ft_putnbr_base(nbr, "0123456789abcdef");
 	return (len);
 }
 
-static void	ft_putptr(unsigned long long ptr)
+static void	ft_putptr(unsigned long long ptr, size_t *len)
 {
 	if (ptr >= 16)
 	{
-		ft_putptr(ptr / 16);
-		ft_putptr(ptr % 16);
+		ft_putptr(ptr / 16, len);
+		ft_putptr(ptr % 16, len);
 	}
 	else
 	{
 		if (ptr < 10)
-			ft_putchar_fd('0' + ptr, 1);
+			len += ft_putchar_fd('0' + ptr, 1);
 		else
-			ft_putchar_fd(ptr - 10 + 'a', 1);
+			len += ft_putchar_fd(ptr - 10 + 'a', 1);
 	}
 }
 
 int	ft_printf_ptr(unsigned long long ptr)
 {
-	int	len;
+	size_t	len;
 
-	len = 2;
-	ft_putstr_fd("0x", 1);
-	len += ft_base_strlen(16, ptr, 0);
-	ft_putptr(ptr);
+	len = 0;
+	len += ft_putstr_fd("0x", 1);
+	ft_putptr(ptr, &len);
 	return (len);
 }

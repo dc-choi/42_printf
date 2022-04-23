@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: donchoi <donchoi@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/22 12:58:23 by donchoi           #+#    #+#             */
-/*   Updated: 2021/12/22 12:58:23 by donchoi          ###   ########.fr       */
+/*   Created: 2021/12/22 12:32:57 by donchoi           #+#    #+#             */
+/*   Updated: 2021/12/22 12:32:57 by donchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+int	ft_putstr_fd(char *s, int fd)
 {
-	if (lst == NULL || del == NULL)
-		return ;
-	del(lst->content);
-	free(lst);
+	int	len;
+
+	if (!(s) || fd < 0)
+		return (-1);
+	len = write(fd, s, ft_strlen(s));
+	return (len);
 }

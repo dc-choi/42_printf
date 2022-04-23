@@ -13,7 +13,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "./Libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
 # include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
@@ -24,5 +25,11 @@ int		ft_printf_str(char *str);
 int		ft_printf_nbr(int nbr);
 int		ft_printf_hex(unsigned int nbr, const char type);
 int		ft_printf_ptr(unsigned long long ptr);
+
+size_t	ft_strlen(const char *str);
+char	*ft_itoa(int n);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
+int		ft_putnbr_base(long long nbr, char *base);
 
 #endif

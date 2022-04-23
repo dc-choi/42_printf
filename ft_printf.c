@@ -14,8 +14,10 @@
 
 int	ft_printf_char(int c)
 {
-	ft_putchar_fd(c, 1);
-	return (1);
+	int	len;
+
+	len = ft_putchar_fd(c, 1);
+	return (len);
 }
 
 int	check_type(const char c, va_list *list)

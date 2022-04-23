@@ -19,8 +19,11 @@ RM = rm -f
 
 FILES = ft_printf \
 		ft_printf_type \
-
-LIBFT_DIR = ./Libft/
+		utils/ft_strlen \
+		utils/ft_itoa \
+		utils/ft_putchar_fd \
+		utils/ft_putstr_fd \
+		utils/ft_putnbr_base \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
@@ -32,19 +35,15 @@ OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
-	make all -C $(LIBFT_DIR)
-	cp Libft/libft.a $(NAME)
 	$(AR) $@ $^
 
 all: $(NAME)
 
 clean:
 	$(RM) $(OBJS)
-	make fclean -C $(LIBFT_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
-	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 

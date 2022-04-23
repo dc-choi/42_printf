@@ -17,7 +17,10 @@ int	ft_printf_str(char *str)
 	int	len;
 
 	if (str == 0)
+	{
 		len = ft_putstr_fd("(null)", 1);
+		return (len);
+	}
 	len = ft_putstr_fd(str, 1);
 	return (len);
 }

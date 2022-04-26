@@ -6,13 +6,13 @@
 #    By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 11:02:56 by donchoi           #+#    #+#              #
-#    Updated: 2022/04/22 17:17:55 by donchoi          ###   ########.fr        #
+#    Updated: 2022/04/26 19:51:46 by donchoi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f

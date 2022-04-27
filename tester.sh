@@ -20,4 +20,4 @@ make fclean
 echo -e "\033[32;1m"FINISHED enter will remove testers and diff results, ctrl + c to check remain"\033[m"
 read $a
 # new version
-rm -rf printf42_mandatorytester ft_printf_tester printfTester
+rm -rf ft_printf_tester printfTester

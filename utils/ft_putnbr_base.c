@@ -6,7 +6,7 @@
 /*   By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 16:14:57 by donchoi           #+#    #+#             */
-/*   Updated: 2022/04/26 20:42:53 by donchoi          ###   ########.fr       */
+/*   Updated: 2022/04/27 15:10:21 by donchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	ft_calculate(long long tmp, char *base, int baselen, int *len)
 	if (tmp <= 0)
 		return ;
 	ft_calculate(tmp / baselen, base, baselen, len);
-	*len += ft_putstr_fd(&base[tmp % baselen], 1);
+	*len += write(1, &base[tmp % baselen], 1);
 }
 
 int	ft_putnbr_base(long long nbr, char *base)
 {
 	int			len;
-	int			baselen;
+	long long	baselen;
 	long long	tmp;
 
 	len = 0;
@@ -32,13 +32,13 @@ int	ft_putnbr_base(long long nbr, char *base)
 	if (tmp >= 0)
 	{
 		ft_calculate(tmp / baselen, base, baselen, &len);
-		len += ft_putstr_fd(&base[nbr % baselen], 1);
+		len += write(1, &base[nbr % baselen], 1);
 	}
 	else
 	{
-		len += ft_putstr_fd("-", 1);
+		len += write(1, "-", 1);
 		ft_calculate(-nbr / baselen, base, baselen, &len);
-		len += ft_putstr_fd(&base[-nbr % baselen], 1);
+		len += write(1, &base[-nbr % baselen], 1);
 	}
 	return (len);
 }

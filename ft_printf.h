@@ -6,7 +6,7 @@
 /*   By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 15:52:23 by donchoi           #+#    #+#             */
-/*   Updated: 2022/04/27 16:51:40 by donchoi          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:53:17 by donchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 int		ft_printf(const char *format, ...);
 int		check_type(const char c, va_list *ap);
 
-int		ft_printf_char(char c);
+int		ft_printf_char(int c);
 int		ft_printf_str(char *str);
 int		ft_printf_nbr(int nbr);
 int		ft_printf_unsigned(unsigned int nbr);

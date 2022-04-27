@@ -6,13 +6,13 @@
 /*   By: donchoi <donchoi.student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 17:05:59 by donchoi           #+#    #+#             */
-/*   Updated: 2022/04/27 15:14:06 by donchoi          ###   ########.fr       */
+/*   Updated: 2022/04/27 16:51:33 by donchoi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_char(int c)
+int	ft_printf_char(char c)
 {
 	int	len;
 
@@ -47,7 +47,7 @@ int	ft_printf_nbr(int nbr)
 int	check_type(const char c, va_list *list)
 {
 	if (c == 'c')
-		return (ft_printf_char(va_arg(*list, int)));
+		return (ft_printf_char(va_arg(*list, char)));
 	else if (c == 's')
 		return (ft_printf_str(va_arg(*list, char *)));
 	else if (c == 'd' || c == 'i')
